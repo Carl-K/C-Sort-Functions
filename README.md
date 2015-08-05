@@ -1,2 +1,2 @@
 # C-Sort-Functions
-Recursive and non recursive sort functions written in C.
+Recursive and non recursive sort functions for integer arrays written in C.
