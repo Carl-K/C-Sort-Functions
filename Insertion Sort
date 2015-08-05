@@ -1,0 +1,19 @@
+void insertionSort(int arr[], int length)
+{
+    int i;
+    int j;
+    int temp;
+    for (i = 1; i < length; i += 1)
+    {
+
+        for (j = i; j > 0; j -= 1)
+        {
+            if (arr[j] < arr[j-1])
+            {
+                temp = arr[j];
+                arr[j] = arr[j-1];
+                arr[j-1] = temp;
+            }
+        }
+    }
+}
