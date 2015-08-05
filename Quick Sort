@@ -1,0 +1,37 @@
+void swap(int arr[], int i, int j)
+{
+    int temp = arr[j];
+    arr[j] = arr[i];
+    arr[i] = temp;
+}
+
+void quickSort(int arr[], int lo, int hi) //inclusive start to exclusive end
+{
+    if (hi - lo <= 1)
+    {
+        return;
+    }
+    int i = lo;
+    int j = hi - 2;
+    while (j > i)
+    {
+        if (arr[j] >= arr[hi - 1])
+        {
+            j = j - 1;
+            continue;
+        }
+        if (arr[i] <= arr[hi - 1])
+        {
+            i = i + 1;
+            continue;
+        }
+        swap(arr, i, j);
+    }
+    while (arr[i] <= arr[hi - 1] && i < hi - 1)
+    {
+        i = i + 1;
+    }
+    swap(arr, hi - 1, i);
+    quickSort(arr, lo, i);
+    quickSort(arr, i, hi);
+}
