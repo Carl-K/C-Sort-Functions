@@ -1,0 +1,27 @@
+void shellSort(int arr[], int length)
+{
+    int i;
+    int j;
+    int temp;
+    int h = 1;
+    while (h < length/3)
+    {
+        h = ((h * 3) + 1);
+    }
+    while ( h >= 1)
+    {
+        for (i = h; i < length; i += 1)
+        {
+            for (j = i; j >= h; j -= h)
+            {
+                if (arr[j] < arr[j-h])
+                {
+                    temp = arr[j];
+                    arr[j] = arr[j-h];
+                    arr[j-h] = temp;
+                }
+            }
+        }
+        h = h/3;
+    }
+}
