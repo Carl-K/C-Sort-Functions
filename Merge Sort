@@ -1,0 +1,45 @@
+void copyArray(int arr[], int low, int hi, int aux[])
+{
+
+    int i;
+    for (i = low; i < hi; i = i + 1)
+    {
+        arr[i] = aux[i];
+    }
+
+}
+
+void mergeArrays(int arr[], int low, int mid, int hi, int aux[])
+{
+
+    int lowPosition = low;
+    int midPosition = mid;
+    int i;
+    for (i = low; i < hi; i = i + 1)
+    {
+        if ( lowPosition < mid && (arr[lowPosition] < arr[midPosition] || midPosition >= hi) )
+        {
+            aux[i] = arr[lowPosition];
+            lowPosition = lowPosition + 1;
+        }
+        else
+        {
+            aux[i] = arr[midPosition];
+            midPosition = midPosition + 1;
+        }
+    }
+
+}
+
+void mergeSort(int arr[], int lowerBound, int upperBound, int aux[])
+{
+    if (upperBound - lowerBound < 2)
+    {
+        return;
+    }
+    int mid = (lowerBound + (upperBound - lowerBound)/2);
+    mergeSort(arr, lowerBound, mid, aux);
+    mergeSort(arr, mid, upperBound, aux);
+    mergeArrays(arr, lowerBound, mid, upperBound, aux);
+    copyArray(arr, lowerBound, upperBound, aux);
+}
